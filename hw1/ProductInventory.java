@@ -1,3 +1,4 @@
+import java.util.Enumeration;
 import java.util.Vector;
 
 public class ProductInventory {
@@ -56,23 +57,23 @@ public class ProductInventory {
         return filtered;
     }
 
-   public double getTotalInventoryValue() {
+    public double getTotalInventoryValue() {
         double totalValue = 0;
         for (Product n : products) {
             totalValue += n.getQuantityInStock() * n.getPrice();
         }
         return totalValue;
-   }
+    }
 
-   public void updateStock(String productId, int quantityChange) {
+    public void updateStock(String productId, int quantityChange) {
         for (Product n : products) {
             if (n.getProductId().equals(productId)) {
                 n.setQuantityInStock(n.getQuantityInStock() + quantityChange);
             }
         }
-   }
+    }
 
-   public void printAllProducts() {
+    public void printAllProducts() {
         if (products.isEmpty()) {
             System.out.println("Inventory is empty.");
             return;
@@ -81,16 +82,54 @@ public class ProductInventory {
         System.out.println("ID\tName\tCategory\tPrice\tStock\tSupplier");
         for (Product p : products) {
             System.out.println(p);
-       }
-   }
+        }
+    }
 
     public int getTotalProducts() {
         return products.size();
-   }
+    }
 
-   public void printCapacityInfo() {
+    public void printCapacityInfo() {
         System.out.println("Current size: " + products.size());
         System.out.println("Current capacity: " + products.capacity());
-   }
-}
+    }
 
+    //Task 3
+    public void optimizeCapacity() {
+        products.trimToSize();
+    }
+
+    public void ensureCapacity(int minCapacity) {
+        products.ensureCapacity(minCapacity);
+    }
+
+    public void printCapacityReport() {
+        int size = products.size();
+        int capacity = products.capacity();
+        int remaining = capacity - size;
+
+        double utilization = 0;
+        if (capacity > 0) {
+            utilization = ((double) size / capacity) * 100;
+        }
+
+        System.out.println("Capacity Report:");
+        System.out.println("Current size: " + size);
+        System.out.println("Current capacity: " + capacity);
+        System.out.println("Utilization: " + String.format("%.2f", utilization) + "%");
+        System.out.println("Remaining before resize: " + remaining);
+    }
+
+    public void printProductsUsingEnumeration() {
+        // Enumeration is a legacy interface used before Iterator was introduced. It is still supported by Vector for backward compatibility.
+        // Today, Iterator or enhanced for-loops are preferred.
+
+        Enumeration<Product> enumeration = products.elements();
+
+        while (enumeration.hasMoreElements()) {
+            Product product = enumeration.nextElement();
+            System.out.println(product);
+        }
+    }
+
+}
