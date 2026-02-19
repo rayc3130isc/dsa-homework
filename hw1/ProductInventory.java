@@ -93,3 +93,4 @@ public class ProductInventory {
         System.out.println("Current capacity: " + products.capacity());
    }
 }
+
