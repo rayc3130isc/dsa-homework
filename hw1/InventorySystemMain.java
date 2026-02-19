@@ -31,11 +31,10 @@ public class InventorySystemMain {
         order1.addItem(new OrderItem("P020", "Wooden Bench", 12, 100.00));
 
         orderManager.addOrder(order1);
+        order1.updateStatus("Delivered");
 
         System.out.println("\n--- Orders ---");
         orderManager.printAllOrders();
-
-        order1.updateStatus("Delivered");
 
         System.out.println("\nTotal Revenue:");
         System.out.println(orderManager.getTotalRevenue());
@@ -57,3 +56,4 @@ public class InventorySystemMain {
         System.out.println("\n<<< END >>>");
     }
 }
+
