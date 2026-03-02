@@ -1,5 +1,3 @@
-package HW2_ArrayLists_Generics;
-
 import java.util.ArrayList;
 
 public class StudentManager {
@@ -41,7 +39,7 @@ public class StudentManager {
                 filtered.add(s);
             }
         }
-        return filtered;
+[O        return filtered;
     }
 
     public ArrayList<Student> getStudentsByYear(int year) {
@@ -92,7 +90,7 @@ public class StudentManager {
         }
     }
 
-    public int getTotalStudents(){
+[I    public int getTotalStudents(){
         return students.size();
     }
 
@@ -107,3 +105,4 @@ public class StudentManager {
         return filtered;
     }
 }
+

@@ -1,8 +1,6 @@
-package HW2_ArrayLists_Generics;
-
 import java.util.Objects;
 
-public class Student <Comparable> {
+public class Student {
     private String studentId, firstName, lastName, email, major;
     private double gpa;
     private int year;
@@ -29,7 +27,7 @@ public class Student <Comparable> {
     public void setYear(int year) {this.year = year;}
 
     public String toString() {
-        return studentId + ",\t" + getFullName() + ",\t" + email + ",\t" + gpa + ",\t" + major + ",\tYear " + year;
+        return studentId + ", " + getFullName() + ", " + email + ", " + gpa + ", " + major + ", Year " + year;
     }
 
     @Override
@@ -47,3 +45,4 @@ public class Student <Comparable> {
 
     public String getFullName() {return firstName + " " + lastName;}
 }
+

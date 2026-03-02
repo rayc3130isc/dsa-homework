@@ -1,4 +1,4 @@
-package HW2_ArrayLists_Generics;
+package HW2_ArrayLists_Generics.homework2;
 
 public class Enrollment {
     private String enrollmentId, studentId, courseCode, grade, semester;
