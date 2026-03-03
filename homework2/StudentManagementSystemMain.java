@@ -3,14 +3,11 @@ package HW2_ArrayLists_Generics.homework2;
 import java.util.ArrayList;
 
 public class StudentManagementSystemMain {
-
     public static void main(String[] args) {
-
         StudentManager sm1 = new StudentManager();
         CourseManager cm1 = new CourseManager();
         EnrollmentManager em1 = new EnrollmentManager(cm1);
 
-        
         // Add Students
         sm1.addStudent(new Student<>("S100", "John", "Doe", "johndoe100@gmail.com", 3.5, "Computer Science", 2));
         sm1.addStudent(new Student<>("S101", "Jane", "Doe", "janedoe101@gmail.com", 3.4, "Computer Science", 2));
@@ -59,11 +56,13 @@ public class StudentManagementSystemMain {
         sm1.printAllStudents();
 
         
-        // Assign Grades + GPA
+        // Assign Grades (TO CISC STUDENTS) + GPA
         sep();
         System.out.println("ASSIGN GRADES:");
-        em1.assignGrade("S100", "A");
-        em1.assignGrade("S101", "A+");
+        for (Enrollment e : em1.getEnrollmentsByCourse("CISC01")) {
+            em1.assignGrade(e.getEnrollmentId(), "A");
+        }
+        System.out.println("Students S100 and S101 have been graded.");
 
         sep();
         System.out.println("CALCULATE GPA:");
@@ -122,7 +121,7 @@ public class StudentManagementSystemMain {
         // Report System
         ReportGenerator rg = new ReportGenerator();
         sep();
-        rg.generateStudentReport("S100", sm1, em1);
+        rg.generateStudentReport("S101", sm1, em1);
         sep();
         rg.generateCourseReport("CISC01", cm1, em1);
         sep();

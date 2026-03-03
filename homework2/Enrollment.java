@@ -3,9 +3,8 @@ package HW2_ArrayLists_Generics.homework2;
 public class Enrollment {
     private String enrollmentId, studentId, courseCode, grade, semester;
 
-    public Enrollment(String enrollmentId, String studentId,
-                      String courseCode, String semester) {
-        this.enrollmentId = enrollmentId;this.studentId = studentId;this.courseCode = courseCode;this.semester = semester;this.grade = null;
+    public Enrollment(String enrollmentId, String studentId, String courseCode, String semester) {
+        this.enrollmentId = enrollmentId; this.studentId = studentId; this.courseCode = courseCode; this.semester = semester; this.grade = null;
     }
 
 
@@ -22,10 +21,7 @@ public class Enrollment {
 
     @Override
     public String toString() {
-        return enrollmentId + " | Student: " + studentId +
-                " | Course: " + courseCode +
-                " | Semester: " + semester +
-                " | Grade: " + (grade == null ? "Not graded" : grade);
+        return enrollmentId + " | Student: " + studentId + " | Course: " + courseCode + " | Semester: " + semester + " | Grade: " + (grade == null ? "Not graded" : grade);
     }
 
     public double getGradePoints() {
