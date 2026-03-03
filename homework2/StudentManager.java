@@ -18,9 +18,10 @@ public class StudentManager {
 
     public boolean removeStudent(String studentId) {
         for (Student s : students) {
-            if (studentId.equals(s.getStudentId()));
-            students.remove(s);
-            return true;
+            if (studentId.equals(s.getStudentId())) {
+                students.remove(s);
+                return true;
+            }
         }
         return false;
     }

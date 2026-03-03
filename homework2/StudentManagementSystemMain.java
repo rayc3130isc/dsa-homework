@@ -51,8 +51,8 @@ public class StudentManagementSystemMain {
         System.out.println(sm1.findStudent("S100"));
 
         sep();
-        System.out.println("REMOVE STUDENT S105:");
-        sm1.removeStudent("S105");
+        System.out.println("REMOVE STUDENT S109:");
+        sm1.removeStudent("S109");
         sm1.printAllStudents();
 
         
