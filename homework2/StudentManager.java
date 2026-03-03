@@ -3,7 +3,7 @@ package HW2_ArrayLists_Generics.homework2;
 import java.util.ArrayList;
 
 public class StudentManager {
-    private ArrayList<Student> students = new ArrayList<>();
+    private ArrayList<Student<?>> students = new ArrayList<>();
 
     public void addStudent(Student student) {
         for (Student s : students) {
@@ -105,5 +105,9 @@ public class StudentManager {
             }
         }
         return filtered;
+    }
+
+    public ArrayList<Student<?>> getAllStudents() {
+        return students;
     }
 }
