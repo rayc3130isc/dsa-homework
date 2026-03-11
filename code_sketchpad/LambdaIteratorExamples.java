@@ -193,5 +193,7 @@ public class LambdaIteratorExamples {
         }
         System.out.println("Count = " + count);
     }
-
+    interface Greeting {
+        void sayHello(String name);
+    }
 }
