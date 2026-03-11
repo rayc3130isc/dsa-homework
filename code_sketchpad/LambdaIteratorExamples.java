@@ -194,18 +194,5 @@ public class LambdaIteratorExamples {
         }
         System.out.println("Count = " + count);
     }
-    /*
-    =========================================================
-    CUSTOM FUNCTIONAL INTERFACE
-    =========================================================
-    Because it has only ONE abstract method,
-    it can be implemented using a lambda expression.
-    name -> System.out.println("Hello " + name)
-    automatically maps to:
-    void sayHello(String name)
-    */
-    interface Greeting {
-        void sayHello(String name);
-    }
 
 }
