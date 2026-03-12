@@ -29,7 +29,7 @@ public class ten_things_hw {
         Iterator<Integer> intit = ints.iterator();
         while(intit.hasNext()) {
             int j = intit.next();
-            System.out.println(j + " is even? " + isEven.test(j));
+            System.out.println("Is " + j + " even? ==> " + isEven.test(j));
         }
         border();
     }
@@ -39,24 +39,73 @@ public class ten_things_hw {
         Iterator<String> s = strings.iterator();
         while(s.hasNext()) {
             String sting = s.next();
-            System.out.println("\"" + sting + "\"" + " is long? " + isLong.test(sting));
+            System.out.println("\"" + sting + "\"" + " is long? => " + isLong.test(sting));
         }
         border();
     }
-    //6) Sorting
-    //7) Removal
-    //8)
-    //9)
-    //10)
+    public static void orderWords(List<String> words) {
+        //6) Lambda - Sorting words in ABC order
+        words.sort((a,b) -> a.compareTo(b));
+        List<String> orderedWords = new ArrayList<>();
+
+        words.forEach(n -> orderedWords.add(n));
+        System.out.println("Sorted Words: " + orderedWords);
+        border();
+    }
+    public static void removeBig(List<Integer> ints) {
+        //7) Lambda - Removal
+        Predicate<Integer> targetSize = x -> x > 10;
+        Iterator<Integer> intit = ints.iterator();
+        List<Integer> filtered = new ArrayList<>();
+
+        while(intit.hasNext()) {
+            int j = intit.next();
+            if(targetSize.test(j)) {
+                intit.remove();
+            } else {filtered.add(j);}
+        }
+        System.out.println("Filtered List: " + filtered);
+        border();
+    }
+    public static void makeUpper(List<String> words) {
+        //8) Lambda - Uppercase all words
+        words.replaceAll(w -> w.toUpperCase());
+        System.out.println(words);
+        border();
+    }
+    public static void removeSmall (List<String> words) {
+        //9) Lambda - Removes short words using removeIf
+        List<String> filtered = new ArrayList<>(words);
+
+        filtered.removeIf(w -> w.length() <= 5);
+        System.out.println("Long Words: " + filtered);
+        border();
+    }
+    public static void getMax(List<Integer> nums) {
+        //10) Iterator - prints out the highest value in a collection
+        Integer max = Collections.max(nums, (a, b) -> a - b); //sorts
+
+        System.out.println(nums);
+        System.out.println("Maximum number: " + max);
+        border();
+    }
 
     public static void main(String [] args) {
-        ArrayList<Integer> numbs = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+        ArrayList<Integer> numbs = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12));
+        ArrayList<String> words = new ArrayList<>(Arrays.asList("choice", "refuse", "polite", "butterfly" , "spot"));
         Set<String> set = Set.of("first", "second", "third", "fourth");
-        printNums(numbs);
-        iterateSet(set);
-        doubleNums(numbs);
-        checkEven(numbs);
-        lengthFilter(set);
+        ArrayList<Integer> mess = new ArrayList<>(Arrays.asList(23, 21, 42, 7, 5, 29, 31, 9));
+
+        printNums(numbs);       //demonstrate method1
+        iterateSet(set);          //demonstrate method2
+        doubleNums(numbs);    //demonstrate method3
+        checkEven(numbs);      //demonstrate method4
+        lengthFilter(set);        //demonstrate method5
+        orderWords(words);    //demonstrate method6
+        removeBig(numbs);       //demonstrate method7
+        makeUpper(words);      //demonstrate method8
+        removeSmall(words);   //demonstrate method9
+        getMax(mess);            //demonstrate method10
     }
     public static void border() {System.out.println("===============");}
 }
